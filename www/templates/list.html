@@ -1,0 +1,52 @@
+<ion-view view-title="List of {{numBridges}} nearby bridges">
+  <ion-content class="padding">
+    <div id="table-info" ng-show="currentLocation.lon && currentLocation.lat">
+      Finding bridges within <em>{{rangeText}}</em> of <em>{{currentLocation.lon | number:2}}&deg;</em> / <em>{{currentLocation.lat | number:2}}&deg;</em>:
+    </div>
+    <div id="table-results-not-found" ng-show="!numBridges">
+      No bridges found.
+    </div>
+    <div id="list-cards" ng-show="numBridges">
+      <div class="card" ng-repeat="bridge in bridges">
+        <div class="item item-divider">
+          <div class="row">
+            <div class="col-75">
+              <i class="icon ion-ios-arrow-up"></i> {{bridge.road}}<br/>
+              <i class="icon ion-ios-arrow-down"></i> {{bridge.crossing}}
+            </div>
+            <div class="col" style="text-align: right;">
+              <i class="icon ion-social-usd" ng-if="bridge.isToll"></i>
+              <i class="icon ion-flag" ng-if="bridge.isHistorical"></i>
+              <i class="icon ion-android-train" ng-if="bridge.serviceOn == 2"></i>
+              <i class="icon ion-android-bicycle" ng-if="bridge.serviceOn == 3"></i>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <span class="subdued">Route Type:</span>
+          {{bridge.roadTypeName}}
+        </div>
+        <div class="item">
+          <span class="subdued">Bridge Use:</span>
+          {{bridge.serviceOnName}}
+        </div>
+        <div class="item item-icon-left">
+          <i class="icon ion-ios-calendar-outline"></i>
+          <span class="subdued">Built:</span> {{bridge.yearBuilt}}
+          <span ng-if="bridge.yearRebuilt > 0">
+            / <span class="subdued">Rebuilt:</span> {{bridge.yearRebuilt}}
+          </span>
+        </div>
+        <div class="item item-icon-left">
+          <i class="icon ion-stats-bars"></i>
+          <span class="subdued">Average Daily Traffic:</span>
+          {{bridge.adt | number: 0}}
+        </div>
+        <a class="item item-icon-right calm" href="#/tab/list/{{bridge._id}}">
+          More info
+          <i class="icon ion-chevron-right"></i>
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

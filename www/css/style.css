@@ -1,0 +1,70 @@
+
+.subdued {
+  color: #666;
+}
+
+/*
+.navbar {
+  top: 0;
+  z-index: 100;
+  position: fixed;
+}
+
+header.navbar-fixed-top .navbar-inner {
+  max-height: 40px;
+  white-space: nowrap;
+  padding: 0 20px;
+}
+
+header.navbar .brand {
+  padding-right: 0;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+@media (max-width: 480px) {
+  .navbar .nav>li>a {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+*/
+
+#map-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/*
+.hideMap {
+  margin-left: -100%;
+}
+
+#table-container,
+#about-container {
+  margin-top: 40px;
+  padding: 10px 0;
+}
+*/
+
+img {
+  max-width: inherit;
+}
+
+.bridge-info-part {
+  float: left;
+  margin-right: 24px;
+}
+
+.bridge-info-part .info {
+  font-weight: bold;
+}
+
+.bridge-info-part label {
+  text-transform: uppercase;
+  color: #888;
+  font-size: .8em;
+}

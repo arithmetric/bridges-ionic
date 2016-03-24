@@ -1,0 +1,6 @@
+{
+  "name": "bridges-ionic",
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.2.4"
+  }
+}

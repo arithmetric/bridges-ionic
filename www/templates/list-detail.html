@@ -1,0 +1,121 @@
+<ion-view view-title="{{bridge.road}} / {{bridge.crossing}}">
+  <ion-content class="padding">
+    <div class="card">
+      <div class="item item-divider">
+        Basic Information
+      </div>
+      <div class="item" ng-if="bridge.isHistorical || bridge.isToll">
+        <div class="bridge-info-special" ng-if="bridge.isHistorical">
+          <span class="subdued">Historical:</span>
+          <i class="icon ion-flag"></i>
+        </div>
+        <div class="bridge-info-special" ng-if="bridge.isToll">
+          <span class="subdued">Toll:</span>
+          <i class="icon ion-social-usd"></i>
+        </div>
+      </div>
+      <div class="item item-icon-left">
+        <i class="icon ion-ios-calendar-outline"></i>
+        <span class="subdued">Built:</span> {{bridge.yearBuilt}}
+        <span ng-if="bridge.yearRebuilt > 0">
+          / <span class="subdued">Rebuilt:</span> {{bridge.yearRebuilt}}
+        </span>
+      </div>
+      <div class="item item-icon-left">
+        <i class="icon ion-stats-bars"></i>
+        <span class="subdued">Daily Traffic (average):</span>
+        {{bridge.adt | number: 0}}
+        <span ng-if="bridge.adtTrucks > 0">
+          <br/><span class="subdued">Daily Truck Traffic (average):</span> {{bridge.adtTrucks}}% ({{bridge.adtTrucksNum | number: 0}})
+        </span>
+      </div>
+      <div class="item">
+        <span class="subdued">Design:</span>
+        {{bridge.mainDesignName}}
+      </div>
+      <div class="item">
+        <span class="subdued">Primary Material:</span>
+        {{bridge.mainMaterialName}}
+      </div>
+      <div class="item">
+        <span class="subdued">Deck Material:</span>
+        {{bridge.deckMaterialName}}
+      </div>
+      <div class="item">
+        <span class="subdued">Length (meters):</span>
+        {{bridge.length}}m
+      </div>
+      <div class="item">
+        <span class="subdued">Max span (meters):</span>
+        {{bridge.maxSpan}}m
+      </div>
+      <div class="item">
+        <span class="subdued">Horizontal clearance (meters):</span>
+        {{bridge.hrzClearance}}m
+      </div>
+      <div class="item" ng-if="bridge.vrtClearance > 1 && bridge.vrtClearance < 30">
+        <span class="subdued">Min clearance under bridge (meters):</span>
+        {{bridge.vrtClearance}}m
+      </div>
+      <div class="item" ng-if="bridge.minClearance > 1 && bridge.minClearance < 30">
+        <span class="subdued">Min clearance above bridge (meters):</span>
+        {{bridge.minClearance}}m
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="item item-divider">
+        Route On Bridge
+      </div>
+      <div class="item">
+        <span class="subdued">Classification:</span>
+        {{bridge.roadTypeName}}
+      </div>
+      <div class="item">
+        <span class="subdued">Use:</span>
+        {{bridge.serviceOnName}}
+      </div>
+      <div class="item">
+        <span class="subdued">Lanes:</span>
+        {{bridge.lanesOn}}
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="item item-divider">
+        Route Under Bridge
+      </div>
+      <div class="item">
+        <span class="subdued">Use:</span>
+        {{bridge.serviceUnderName}}
+      </div>
+      <div class="item">
+        <span class="subdued">Lanes:</span>
+        {{bridge.lanesUnder}}
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="item item-divider">
+        Other Information
+      </div>
+      <div class="item">
+        <span class="subdued">Maintainer:</span>
+        {{bridge.maintainerName}}
+      </div>
+      <div class="item">
+        <span class="subdued">Owner:</span>
+        {{bridge.ownerName}}
+      </div>
+      <div class="item">
+        <span class="subdued">Last Inspection:</span>
+        {{bridge.inspectDateObj | date: "MMMM y"}}
+      </div>
+      <div class="item item-icon-left">
+        <i class="icon ion-pinpoint"></i>
+        <span class="subdued">Local ID:</span>
+        {{bridge.localId}}
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
